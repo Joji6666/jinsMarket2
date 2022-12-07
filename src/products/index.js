@@ -34,7 +34,6 @@ function ProductPage() {
       <div id="contetns-box">
         <div id="name">{product.name}</div>
         <div id="price">{product.price}원</div>
-        <div id="createAt">2022.12.6</div>
         <div id="description">{product.description}</div>
       </div>
     </div>
