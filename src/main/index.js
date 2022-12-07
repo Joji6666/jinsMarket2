@@ -7,9 +7,7 @@ function MainPage() {
   const [products, setProducts] = React.useState([]);
   React.useEffect(function () {
     axios
-      .get(
-        "https://576c94d0-354a-4684-b794-5981e1b1f4e7.mock.pstmn.io/products"
-      )
+      .get("http://localhost:8080/products")
       .then(function (result) {
         const products = result.data.products;
         setProducts(products);
@@ -51,8 +49,6 @@ function MainPage() {
           );
         })}
       </div>
-
-      <div id="footer"></div>
     </div>
   );
 }
