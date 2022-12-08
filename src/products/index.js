@@ -2,15 +2,15 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./index.css";
+import { API_URL } from "../config/constants";
 
 function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   useEffect(function () {
     axios
-      .get(`http://localhost:8080/products/${id}`)
+      .get(`${API_URL}/products/${id}`)
       .then(function (result) {
-        console.log(result.data);
         setProduct(result.data.product);
       })
       .catch(function (error) {
@@ -25,7 +25,7 @@ function ProductPage() {
   return (
     <div>
       <div id="image-box">
-        <img src={"/" + product.imageUrl} />
+        <img src={`${API_URL}/${product.imageUrl}`} />
       </div>
       <div id="profile-box">
         <img src="/images/icons/avatar.png" />
@@ -33,6 +33,7 @@ function ProductPage() {
       </div>
       <div id="contetns-box">
         <div id="name">{product.name}</div>
+        <div id="createdAT">{product.creaatedAT}</div>
         <div id="price">{product.price}원</div>
         <div id="description">{product.description}</div>
       </div>
